@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.zettanode.SaraSolomonLiteIonic" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Dr. Sara Solomon - Fat Loss Fast System</name>
+    <description>
+        
+    </description>
+    <author email="admin@zettanode.com" href="http://zettanode.com">
+        Zettanode
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+</widget>

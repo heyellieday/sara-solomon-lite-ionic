@@ -1,0 +1,23 @@
+<ion-view title="Newsletter">
+  <ion-content class="has-header" ng-controller="NewsletterCtrl">
+  	<div name="newsletter" class="newsletter">
+  		<div class="list list-inset">
+		  <label class="item item-input">
+		    <input type="text" ng-model="first" placeholder="First Name">
+		  </label>
+		  <label class="item item-input">
+		    <input type="text" ng-model="last" placeholder="Last Name">
+		  </label>
+		  <label class="item item-input">
+		    <input type="text" ng-model="email" placeholder="Email">
+		  </label>
+		    <ion-checkbox ng-model="IFTutorial">IF Tutorials</ion-checkbox>
+		    <ion-checkbox ng-model="recipes">Recipes</ion-checkbox>
+		</div>
+		 <button on-touch="submit()" class="button button-block button-royal"  id="submit" >Submit</button>
+  	</div>
+  	<div class="success">
+  		<h2>Thank you for subscribing to the newsletter!</h2>
+  	</div>
+  </ion-content>
+</ion-view>

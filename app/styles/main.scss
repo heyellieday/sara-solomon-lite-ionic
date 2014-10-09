@@ -1,0 +1,48 @@
+// Your application styles go here
+.view{
+	background: url('../img/background.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+
+.item{
+	opacity:.9;
+	background-color: transparent;
+}
+.pane {
+	background-color:transparent;
+}
+
+.workout-detail, .item-detail, .recipe-detail{
+	background-color:white;
+	opacity:.9;
+	
+}
+
+.tabs{
+	opacity: .7
+}
+.bar.bar-stable{
+	opacity:.7;
+}
+
+img {
+	width:100%;
+	height:auto;
+}
+
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}

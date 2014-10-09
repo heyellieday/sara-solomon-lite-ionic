@@ -1,0 +1,9 @@
+<ion-view title="{{video[0].title.$t}}" class="workout-detail">
+  <ion-content has-header="true" padding="true">
+  	<h2></h2>
+  	<div class="videoWrapper">
+	    <!-- Copy & Pasted from YouTube -->
+	    <iframe width="560" height="349" src="{{trimId(video[0].id.$t, true)}}"  frameborder="0" allowfullscreen></iframe>
+	</div>
+  </ion-content>
+</ion-view>

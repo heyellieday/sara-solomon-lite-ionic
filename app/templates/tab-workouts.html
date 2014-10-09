@@ -1,0 +1,9 @@
+<ion-view title="Workouts">
+  <ion-content class="has-header">
+  	<ion-item ng-repeat="video in Videos.videos" type="item-text-wrap" class="video" href="#/tab/workouts/{{trimId(video.id.$t, false)}}">
+  	<h2>{{video.title.$t}}</h2>
+      <img src="{{video.media$group.media$thumbnail[0].url}}">
+    </ion-item>
+  	
+  </ion-content>
+</ion-view>
