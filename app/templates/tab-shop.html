@@ -1,7 +1,7 @@
 <ion-view title="Shop">
   <ion-content class="has-header">
     <ion-list>
-      <ion-item ng-repeat="item in Shop.items" type="item-text-wrap" class="item-avatar" href="#/tab/shop/{{item.id}}">
+      <ion-item ng-repeat="item in Shop.items" type="item-text-wrap" class="item-avatar" ng-click="openLink('{{item.url}}')" href="#">
       <img src="{{item.attachments[0].url}}">
         <h2 ng-bind-html="item.title"></h2>
       </ion-item>

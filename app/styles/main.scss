@@ -7,6 +7,11 @@
   	background-size: cover;
 }
 
+.newsletter-background {
+	background: white;
+	opacity:0.9;
+}
+
 .item{
 	opacity:.9;
 	background-color: transparent;
@@ -32,6 +37,12 @@ img {
 	width:100%;
 	height:auto;
 }
+.success{
+	margin-top:40px;
+	margin-left:20px;
+	margin-right:20px;
+	text-align:center;
+}
 
 .videoWrapper {
 	position: relative;
@@ -45,4 +56,8 @@ img {
 	left: 0;
 	width: 100%;
 	height: 100%;
+}
+
+.white{
+	color:white;
 }

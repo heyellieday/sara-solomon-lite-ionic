@@ -3,11 +3,33 @@
 angular.module('SaraSolomonLiteIonic.controllers', [])
 
 .controller('DashCtrl', function($scope) {
+  $scope.openLink = function(url) {
+    window.open(url, '_blank', 'location=no');
+ };
 })
 
 .controller('RecipesCtrl', function($scope, Recipes) {
  $scope.Recipes = new Recipes();
  $scope.Recipes.loadRecipes();
+
+ var end = false;
+  $scope.currentPage = 1;
+
+  $scope.fetchMore = function() {
+    if (end) return;
+
+    $http.get("http://www.drsarasolomon.com/api/get_posts/?categories=recipes&page=" + $scope.currentPage).success(function(data) {
+      if (data.posts.length){
+        Array.prototype.push.apply($scope.Recipies.recipes, data.posts);
+        $scope.currentPage++;
+      }else{ end = true;}
+    }).error(function(err) {
+      console.log("Failed to download list items:", err);
+      end = true;
+    }).finally(function() {
+      $scope.$broadcast("scroll.infiniteScrollComplete");
+    });
+  };
 })
 
 .controller('RecipeDetailCtrl', function($scope, $stateParams, Recipes, $sce) {
@@ -18,6 +40,10 @@ angular.module('SaraSolomonLiteIonic.controllers', [])
   });
 })
 .controller('ShopCtrl', function($scope, Shop) {
+
+  $scope.openLink = function(url) {
+    window.open(url, '_blank', 'location=no');
+ };
  $scope.Shop = new Shop();
  $scope.Shop.loadItems();
 })
@@ -70,28 +96,24 @@ $scope.Videos.loadVideos(function () {
 
 
 
-.controller('NewsletterCtrl', function($scope, $firebase) {
+.controller('NewsletterCtrl', function($scope, $http) {
 
-  var ref = new Firebase("https://sara-solomon-lite.firebaseio.com/");
 
 	$( ".success" ).hide();
-	$scope.email = 'test@test.com';
-	$scope.first = 'Jane';
-	$scope.last = 'Doe';
 	$scope.recipes = true;
 	$scope.IFTutorial = true;
   $scope.fiftyDayChallenge = true;
   
   $scope.submit = function(){
-      ref.push({
-        first: $scope.first,
-        last: $scope.last,
+      $http.post('http://sara-solomon-lite.herokuapp.com/subscribers', {
+        first_name: $scope.first,
+        last_name: $scope.last,
         email: $scope.email,
         recipes: $scope.recipes,
-        iftutorial: $scope.IFTutorial,
-        fiftydaychallenge: $scope.fiftyDayChallenge
+        if_tutorial: $scope.IFTutorial,
+        fifty_day_challenge: $scope.fiftyDayChallenge
 
-      });  
+      }); 
     $( ".success" ).show();
     $( ".newsletter" ).hide();
   };

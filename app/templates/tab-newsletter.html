@@ -1,5 +1,5 @@
 <ion-view title="Newsletter">
-  <ion-content class="has-header" ng-controller="NewsletterCtrl">
+  <ion-content class="has-header newsletter-background" ng-controller="NewsletterCtrl">
   	<div name="newsletter" class="newsletter">
   		<div class="list list-inset">
 		  <label class="item item-input">
@@ -13,6 +13,7 @@
 		  </label>
 		    <ion-checkbox ng-model="IFTutorial">IF Tutorials</ion-checkbox>
 		    <ion-checkbox ng-model="recipes">Recipes</ion-checkbox>
+		    <ion-checkbox ng-model="fiftyDayChallenge">50 Day Workout Challenge</ion-checkbox>
 		</div>
 		 <button on-touch="submit()" class="button button-block button-royal"  id="submit" >Submit</button>
   	</div>

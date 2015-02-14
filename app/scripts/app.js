@@ -17,8 +17,38 @@ angular.module('SaraSolomonLiteIonic', ['ionic', 'config', 'SaraSolomonLiteIonic
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    var admobCheck = function(check) {
+        // select the right Ad Id according to platform
+      if(window.plugins && window.plugins.AdMob) {
+                  check = false;
+                  var admob_key = device.platform == "Android" ? "ca-app-pub-6252136944139629/6373747730" : "ca-app-pub-6252136944139629/3420281338";
+                  var admob = window.plugins.AdMob;
+                  admob.createBannerView( 
+                      {
+                          'publisherId': admob_key,
+                          'adSize': admob.AD_SIZE.BANNER,
+                          'bannerAtTop': false
+                      }, 
+                      function() {
+                          admob.requestAd(
+                              { 'isTesting': false }, 
+                              function() {
+                                  admob.showAd(true);
+                              }, 
+                              function() { console.log('failed to request ad'); }
+                          );
+                      }, 
+                      function() { console.log('failed to create banner view'); }
+                  );
+      }
+      if (check == true){
+        setTimeout(admobCheck(check) ,500);
+      }
+    }
+    admobCheck();
   });
 })
+
 .config(function($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
